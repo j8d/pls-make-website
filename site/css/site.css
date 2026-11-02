@@ -1,0 +1,248 @@
+/* Pls Make Website: tokens mirror DESIGN.md front matter. Keep them in sync. */
+
+/* ---------- Fonts: self-hosted, OFL-1.1, latin subset ---------- */
+@font-face { font-family: "Space Grotesk"; src: url(../fonts/space-grotesk-latin-wght-normal.woff2) format("woff2"); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible Next"; src: url(../fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2) format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url(../fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); font-weight: 100 800; font-display: swap; }
+@font-face { font-family: "Comic Neue"; src: url(../fonts/comic-neue-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Comic Neue"; src: url(../fonts/comic-neue-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url(../fonts/fraunces-latin-wght-normal.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Source Serif 4"; src: url(../fonts/source-serif-4-latin-wght-normal.woff2) format("woff2"); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: "Press Start 2P"; src: url(../fonts/press-start-2p-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url(../fonts/ibm-plex-mono-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+
+/* ---------- Tokens ---------- */
+:root {
+  --ink: #14161b;
+  --ink-raised: #1f232b;
+  --ink-line: #353b47;
+  --paper: #f6f1e7;
+  --paper-line: #d9cfbd;
+  --text-on-ink: #ece7dc;
+  --muted-on-ink: #a8a295;
+  --text-on-paper: #1a1a1a;
+  --muted-on-paper: #5a5248;
+  --accent: #ff5a36;          /* tomato: on ink only */
+  --accent-strong: #b3301a;   /* tomato for text/links on paper */
+  --highlight: #ffd23f;       /* string yellow, focus ring on ink */
+  --success: #5fd38d;
+
+  --pair-shipped-display: "Space Grotesk", system-ui, sans-serif;
+  --pair-shipped-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --pair-comic-display: "Comic Neue", "Comic Sans MS", cursive;
+  --pair-comic-body: "Comic Neue", "Comic Sans MS", cursive;
+  --pair-fancy-display: "Fraunces", Georgia, serif;
+  --pair-fancy-body: "Source Serif 4", Georgia, serif;
+  --pair-8bit-display: "Press Start 2P", ui-monospace, monospace;
+  --pair-8bit-body: "IBM Plex Mono", ui-monospace, monospace;
+
+  --font-display: var(--pair-shipped-display);
+  --font-body: var(--pair-shipped-body);
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --display-scale: 1;
+
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  --step-3: clamp(2.25rem, 1.6rem + 3.2vw, 4.5rem);
+  --step-big: clamp(6rem, 2rem + 18vw, 18rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --measure: 62ch;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+
+  --ease-whoosh: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-whoosh: 520ms;
+}
+
+/* Font pair selection. JS sets data-font; without JS, :has() follows the checked radio. */
+html[data-font="comic"], html:not([data-font]):has(input[value="comic"]:checked) { --font-display: var(--pair-comic-display); --font-body: var(--pair-comic-body); }
+html[data-font="fancy"], html:not([data-font]):has(input[value="fancy"]:checked) { --font-display: var(--pair-fancy-display); --font-body: var(--pair-fancy-body); }
+html[data-font="8bit"],  html:not([data-font]):has(input[value="8bit"]:checked)  { --font-display: var(--pair-8bit-display); --font-body: var(--pair-8bit-body); --display-scale: 0.62; }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  font: 400 var(--step-0)/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 var(--space-4); text-wrap: balance; }
+p { margin: 0 0 var(--space-3); max-width: var(--measure); text-wrap: pretty; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 0.2em; }
+:focus-visible { outline: 3px solid var(--highlight); outline-offset: 3px; border-radius: 2px; }
+.band-paper :focus-visible, .band-paper:focus-visible { outline-color: var(--text-on-paper); }
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: var(--space-3); top: -10rem; z-index: 50; background: var(--highlight); color: var(--ink); padding: var(--space-2) var(--space-3); font-weight: 700; }
+.skip:focus { top: var(--space-3); }
+
+.wrap { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: var(--gutter); }
+.quote { font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent); margin-bottom: var(--space-2); }
+.quote::before { content: "> "; opacity: 0.6; }
+.band-paper .quote { color: var(--accent-strong); }
+.stub { font-family: var(--font-mono); font-size: 0.85rem; border: 1px dashed currentColor; padding: var(--space-3); border-radius: var(--radius-sm); opacity: 0.85; }
+
+/* ---------- Masthead ---------- */
+.masthead {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  padding: var(--space-2) var(--gutter);
+  min-height: 3.75rem;
+  background: color-mix(in srgb, var(--ink) 92%, transparent);
+  border-bottom: 1px solid var(--ink-line);
+}
+.wordmark { font-family: var(--font-mono); font-weight: 700; text-decoration: none; white-space: nowrap; padding-block: var(--space-2); }
+.wordmark span { color: var(--highlight); }
+
+.nav-inline ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); list-style: none; margin: 0; padding: 0; font-size: 0.9rem; }
+.nav-inline a { display: inline-block; padding: var(--space-2) 0; }
+.js .nav-inline { display: none; }
+
+.menu-btn { display: none; }
+.js .menu-btn {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 44px; padding: 0 var(--space-3);
+  font: 700 0.95rem var(--font-mono); color: var(--ink); background: var(--highlight);
+  border: 0; border-radius: 999px; cursor: pointer;
+}
+.whoosh-icon path { transition: transform 300ms var(--ease-whoosh); }
+.menu-btn:hover .whoosh-icon path { transform: translateX(4px); }
+
+/* ---------- Whooosh menu (native <dialog>: focus trap, Esc, focus return) ---------- */
+.menu {
+  inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+  background: var(--ink-raised); color: var(--text-on-ink);
+}
+.menu::backdrop { background: rgb(0 0 0 / 0.5); }
+.menu-inner { min-height: 100%; display: grid; align-content: center; padding: var(--space-6) var(--gutter); position: relative; overflow: hidden; }
+.menu-close {
+  position: absolute; top: var(--space-2); right: var(--gutter);
+  min-height: 44px; padding: 0 var(--space-3);
+  font: 700 0.95rem var(--font-mono); color: var(--text-on-ink); background: transparent;
+  border: 1px solid var(--ink-line); border-radius: 999px; cursor: pointer;
+}
+.menu-list { list-style: none; margin: 0 auto; padding: 0; width: 100%; max-width: 60rem; }
+.menu-list a {
+  display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-3); align-items: baseline;
+  padding: var(--space-2) 0; text-decoration: none; border-bottom: 1px solid var(--ink-line);
+}
+.menu-n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted-on-ink); }
+.menu-t { font-family: var(--font-display); font-size: calc(var(--step-2) * var(--display-scale)); font-weight: 700; line-height: 1.15; }
+.menu-q { grid-column: 2; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); }
+.menu-list a:hover .menu-t, .menu-list a:focus-visible .menu-t { color: var(--highlight); }
+
+/* The whooosh: panel sweeps in from the menu button corner, links streak in staggered, speed lines fly past. */
+@media (prefers-reduced-motion: no-preference) {
+  .menu[open] { animation: whoosh-panel var(--dur-whoosh) var(--ease-whoosh); }
+  .menu[open] .menu-list li { animation: whoosh-item var(--dur-whoosh) var(--ease-whoosh) both; animation-delay: calc(80ms + var(--i) * 45ms); }
+  .menu[open] .menu-inner::before, .menu[open] .menu-inner::after {
+    content: ""; position: absolute; left: 0; height: 2px; width: 40%;
+    background: linear-gradient(90deg, transparent, var(--highlight));
+    animation: whoosh-line 600ms var(--ease-whoosh) both; pointer-events: none;
+  }
+  .menu[open] .menu-inner::before { top: 30%; }
+  .menu[open] .menu-inner::after { top: 68%; animation-delay: 90ms; }
+}
+@keyframes whoosh-panel { from { clip-path: circle(0% at calc(100% - 3rem) 1.9rem); } to { clip-path: circle(150% at calc(100% - 3rem) 1.9rem); } }
+@keyframes whoosh-item { from { opacity: 0; transform: translateX(3rem) skewX(-14deg); } to { opacity: 1; transform: none; } }
+@keyframes whoosh-line { from { transform: translateX(260%); opacity: 1; } to { transform: translateX(-120%); opacity: 0; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid; gap: var(--space-5); align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 80rem; margin-inline: auto;
+  padding: var(--space-6) var(--gutter) var(--space-7);
+}
+@media (min-width: 60rem) { .hero { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); } }
+.eyebrow { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-on-ink); }
+.eyebrow strong { color: var(--success); font-weight: 700; }
+.hero h1 { font-size: calc(var(--step-3) * var(--display-scale)); }
+.lede { font-size: var(--step-1); color: var(--muted-on-ink); line-height: 1.45; }
+
+.editor { margin: 0; background: var(--ink-raised); border: 1px solid var(--ink-line); border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.7); }
+.editor-bar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--ink-line); font: 0.8rem var(--font-mono); color: var(--muted-on-ink); }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink-line); }
+.tab { padding: 2px var(--space-2); border-bottom: 2px solid var(--accent); color: var(--text-on-ink); }
+.editor-body {
+  counter-reset: line;
+  padding: var(--space-3) var(--space-3) var(--space-4) 0;
+  font: 400 clamp(0.8rem, 0.7rem + 0.7vw, 1.05rem)/1.75 var(--font-mono);
+}
+.ln { display: flex; flex-wrap: wrap; column-gap: var(--space-3); min-height: 1.75em; padding-left: 3.25em; position: relative; counter-increment: line; }
+.ln::before { content: counter(line) / ""; position: absolute; left: 0; width: 2.25em; text-align: right; color: var(--muted-on-ink); opacity: 0.7; }
+.req a { color: var(--highlight); text-decoration: underline dotted 1px; text-underline-offset: 0.3em; }
+.req a:hover { text-decoration-style: solid; }
+.done { font-style: normal; color: var(--success); opacity: 0.9; }
+
+/* ---------- Bands ---------- */
+.band { padding: var(--space-7) 0; }
+.band h2 { font-size: calc(var(--step-2) * var(--display-scale)); max-width: 22ch; }
+.band-paper { background: var(--paper); color: var(--text-on-paper); }
+.band-paper a { color: var(--accent-strong); }
+.band-ink { background: var(--ink); }
+/* Below-the-fold sections skip layout until near the viewport, so the font specimens don't fetch fonts at load. */
+#fonts, #fast, #menus { content-visibility: auto; contain-intrinsic-size: auto 40rem; }
+
+/* ---------- BIG picture ---------- */
+.big { background: var(--paper); color: var(--text-on-paper); padding-top: var(--space-6); }
+.big .quote { color: var(--accent-strong); }
+.big-head h2 { font-size: calc(var(--step-big) * var(--display-scale)); line-height: 0.8; margin: 0 0 calc(var(--step-big) * -0.18); letter-spacing: -0.05em; position: relative; z-index: 1; color: var(--accent-strong); }
+.bleed { margin: 0; position: relative; }
+.bleed img { width: 100%; height: clamp(22rem, 60vw, 54rem); object-fit: cover; object-position: 62% 60%; }
+.bleed figcaption {
+  display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap;
+  padding: var(--space-3) var(--gutter); background: var(--ink); color: var(--text-on-ink);
+  font: 0.85rem var(--font-mono);
+}
+.pin-note { color: var(--highlight); }
+
+/* ---------- Font picker ---------- */
+.fontpicker fieldset { border: 0; margin: var(--space-4) 0 0; padding: 0; }
+.fontpicker legend { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted-on-paper); margin-bottom: var(--space-3); padding: 0; }
+.font-grid { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.font-opt {
+  position: relative; display: grid; gap: var(--space-2); cursor: pointer;
+  padding: var(--space-4); min-height: 44px;
+  background: #fffaf0; border: 2px solid var(--paper-line); border-radius: var(--radius-md);
+  transition: border-color 150ms, transform 150ms;
+}
+.font-opt:hover { border-color: var(--muted-on-paper); }
+.font-opt:has(input:checked) { border-color: var(--text-on-paper); box-shadow: 4px 4px 0 var(--text-on-paper); }
+.font-opt:has(input:focus-visible) { outline: 3px solid var(--text-on-paper); outline-offset: 3px; }
+.font-opt input { position: absolute; top: var(--space-3); right: var(--space-3); width: 1.25rem; height: 1.25rem; margin: 0; accent-color: var(--text-on-paper); }
+.font-specimen { font-size: var(--step-1); font-weight: 700; line-height: 1.2; padding-right: var(--space-5); }
+.font-name { font-weight: 700; font-family: var(--font-mono); font-size: 0.9rem; }
+.font-name small { display: block; font-weight: 400; color: var(--muted-on-paper); font-size: 0.8rem; }
+.font-opt[data-pair="shipped"] .font-specimen { font-family: var(--pair-shipped-display); }
+.font-opt[data-pair="comic"] .font-specimen { font-family: var(--pair-comic-display); }
+.font-opt[data-pair="fancy"] .font-specimen { font-family: var(--pair-fancy-display); }
+.font-opt[data-pair="8bit"] .font-specimen { font-family: var(--pair-8bit-display); font-size: 0.95rem; line-height: 1.6; }
+.font-note { font-family: var(--font-mono); font-size: 0.85rem; min-height: 1.6em; margin-top: var(--space-3); }
+
+/* ---------- Footer ---------- */
+.footer { padding: var(--space-6) 0; border-top: 1px solid var(--ink-line); }
+.bugs { font-family: var(--font-mono); font-size: var(--step-3); letter-spacing: -0.03em; margin: 0 0 var(--space-3); }
+.bugs-n { color: var(--success); }
+.fine { color: var(--muted-on-ink); font-size: 0.9rem; }
+.fine a { color: var(--highlight); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}

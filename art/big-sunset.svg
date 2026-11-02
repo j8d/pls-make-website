@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1200" width="2400" height="1200">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f1e7"/>
+      <stop offset="0.62" stop-color="#ffc9a8"/>
+      <stop offset="1" stop-color="#ff8a5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="2400" height="1200" fill="url(#sky)"/>
+  <!-- the BIG sun -->
+  <circle cx="1560" cy="700" r="430" fill="#ff5a36"/>
+  <g fill="#f6f1e7" opacity="0.9">
+    <rect x="1100" y="760" width="920" height="22"/>
+    <rect x="1100" y="820" width="920" height="30"/>
+    <rect x="1100" y="890" width="920" height="40"/>
+  </g>
+  <!-- far ridge -->
+  <path d="M0 820 L180 700 L330 760 L520 610 L700 720 L860 640 L1040 760 L1240 660 L1420 780 L1640 690 L1840 800 L2040 700 L2240 780 L2400 720 L2400 1200 L0 1200 Z" fill="#c2563b"/>
+  <!-- mid ridge -->
+  <path d="M0 930 L220 800 L420 900 L640 760 L860 900 L1080 820 L1300 940 L1520 840 L1760 960 L1980 860 L2200 950 L2400 880 L2400 1200 L0 1200 Z" fill="#6e2f2a"/>
+  <!-- near ridge -->
+  <path d="M0 1040 L300 950 L600 1030 L900 960 L1200 1060 L1500 980 L1800 1070 L2100 990 L2400 1060 L2400 1200 L0 1200 Z" fill="#14161b"/>
+  <!-- tiny pin, for scale -->
+  <g transform="translate(560 1002)">
+    <path d="M0 -34 C-12 -34 -20 -25 -20 -14 C-20 0 0 18 0 18 C0 18 20 0 20 -14 C20 -25 12 -34 0 -34 Z" fill="#ffd23f"/>
+    <circle cx="0" cy="-15" r="6.5" fill="#14161b"/>
+  </g>
+</svg>

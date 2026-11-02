@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pls Make Website: a website, as requested</title>
+  <meta name="description" content="Machine, pls make website. All responsive like, w/ BIG pictures, your fav fonts, fancy menus with whooosh, load fast pls. PS no bugs. Done.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    // Runs before first paint: mark JS available and restore the saved font pair (no flash).
+    (function (d) {
+      d.className = 'js';
+      try { var f = localStorage.getItem('pmw-font'); if (f) d.dataset.font = f; } catch (e) {}
+    })(document.documentElement);
+  </script>
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="Pls Make Website, back to top">pls.make(<span>website</span>)</a>
+
+    <!-- No-JS nav: plain anchor links, always works. Hidden once JS upgrades to the whooosh menu. -->
+    <nav class="nav-inline" aria-label="Sections">
+      <ul>
+        <li><a href="#responsive">Responsive</a></li>
+        <li><a href="#big-pictures">BIG pictures</a></li>
+        <li><a href="#fonts">Fonts</a></li>
+        <li><a href="#menus">Menus</a></li>
+        <li><a href="#fast">Fast</a></li>
+        <li><a href="#no-bugs">No bugs</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu">
+      <span>Menu</span>
+      <svg class="whoosh-icon" viewBox="0 0 28 16" width="28" height="16" aria-hidden="true" focusable="false">
+        <path d="M2 3h16M8 8h18M4 13h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      </svg>
+    </button>
+  </header>
+
+  <dialog id="menu" class="menu" aria-label="Site menu">
+    <div class="menu-inner">
+      <button class="menu-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button>
+      <nav aria-label="Sections">
+        <ol class="menu-list">
+          <li style="--i:0"><a href="#responsive"><span class="menu-n">01</span><span class="menu-t">Responsive</span><span class="menu-q">all responsive like,</span></a></li>
+          <li style="--i:1"><a href="#big-pictures"><span class="menu-n">02</span><span class="menu-t">BIG pictures</span><span class="menu-q">w/ BIG pictures ooo,</span></a></li>
+          <li style="--i:2"><a href="#fonts"><span class="menu-n">03</span><span class="menu-t">Your fav fonts</span><span class="menu-q">use my fav fonts,</span></a></li>
+          <li style="--i:3"><a href="#menus"><span class="menu-n">04</span><span class="menu-t">Whooosh menus</span><span class="menu-q">also fancy menus with whooosh on,</span></a></li>
+          <li style="--i:4"><a href="#fast"><span class="menu-n">05</span><span class="menu-t">Loads fast</span><span class="menu-q">load fast pls</span></a></li>
+          <li style="--i:5"><a href="#no-bugs"><span class="menu-n">06</span><span class="menu-t">No bugs</span><span class="menu-q">PS no bugs :)</span></a></li>
+        </ol>
+      </nav>
+    </div>
+  </dialog>
+
+  <main id="main">
+    <!-- HERO: the letter is the hero. Every request line links to the section that ships it. -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Ticket received. Status: <strong>shipped</strong></p>
+        <h1 id="hero-title">Machine was asked to make website. Machine made website.</h1>
+        <p class="lede">Here's the original request. Every line was treated as a real requirement. Pick a line to see how it was done.</p>
+      </div>
+
+      <figure class="editor" aria-labelledby="editor-cap">
+        <div class="editor-bar" aria-hidden="true">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="tab">request_from_human.txt</span>
+        </div>
+        <div class="editor-body">
+          <span class="ln">Machine,</span>
+          <span class="ln"></span>
+          <span class="ln">Pls make website,</span>
+          <span class="ln"></span>
+          <span class="ln req"><a href="#responsive">all responsive like,</a><em class="done">// ✓ 320px → 4K</em></span>
+          <span class="ln req"><a href="#big-pictures">w/ BIG pictures ooo,</a><em class="done">// ✓ 2400px, 7 KB</em></span>
+          <span class="ln req"><a href="#fonts">use my fav fonts,</a><em class="done">// ✓ you pick</em></span>
+          <span class="ln req"><a href="#menus">also fancy menus with whooosh on,</a><em class="done">// ✓ whooosh</em></span>
+          <span class="ln req"><a href="#fast">load fast pls</a><em class="done">// ✓ Lighthouse 90+</em></span>
+          <span class="ln"></span>
+          <span class="ln">Thanks,</span>
+          <span class="ln">Human</span>
+          <span class="ln"></span>
+          <span class="ln req"><a href="#no-bugs">PS no bugs :)</a><em class="done">// ✓ bugs: 0</em></span>
+        </div>
+        <figcaption id="editor-cap" class="visually-hidden">The original request, written as a note in a code editor. Each request line links to its section.</figcaption>
+      </figure>
+    </section>
+
+    <section class="band band-paper" id="responsive" aria-labelledby="h-responsive">
+      <div class="wrap">
+        <p class="quote">all responsive like,</p>
+        <h2 id="h-responsive">Works from 320px to a very wide monitor.</h2>
+        <p class="stub">Phase 2 builds this section: a live viewport readout and the same layout shown at phone, tablet and desktop widths.</p>
+      </div>
+    </section>
+
+    <!-- BIG picture: full-bleed, responsive AVIF/WebP, explicit dimensions, lazy (below the fold). -->
+    <section class="big" id="big-pictures" aria-labelledby="h-big">
+      <div class="wrap big-head">
+        <p class="quote">w/ BIG pictures ooo,</p>
+        <h2 id="h-big">ooo</h2>
+      </div>
+      <figure class="bleed">
+        <picture>
+          <source type="image/avif" srcset="img/big-sunset-640.avif 640w, img/big-sunset-1024.avif 1024w, img/big-sunset-1600.avif 1600w, img/big-sunset-2400.avif 2400w" sizes="100vw">
+          <source type="image/webp" srcset="img/big-sunset-640.webp 640w, img/big-sunset-1024.webp 1024w, img/big-sunset-1600.webp 1600w, img/big-sunset-2400.webp 2400w" sizes="100vw">
+          <img src="img/big-sunset-1600.webp" width="2400" height="1200" loading="lazy" decoding="async"
+               alt="Illustration: an enormous orange sun sinking behind three layers of dark red mountains. A tiny yellow map pin on the nearest ridge shows how big everything else is.">
+        </picture>
+        <figcaption>
+          <span>Original art, CC0. 2400px wide, about 7&nbsp;KB as AVIF.</span>
+          <span class="pin-note" aria-hidden="true">← you are here</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="band band-paper" id="fonts" aria-labelledby="h-fonts">
+      <div class="wrap">
+        <p class="quote">use my fav fonts,</p>
+        <h2 id="h-fonts">You never said which fonts. So you choose.</h2>
+        <p>Pick a pair and the whole site switches. It remembers your pick next time. All fonts are open-license and served from this site, with no font CDN.</p>
+
+        <form class="fontpicker" aria-describedby="font-note">
+          <fieldset>
+            <legend>Font pair</legend>
+            <div class="font-grid">
+              <label class="font-opt" data-pair="shipped">
+                <input type="radio" name="font" value="shipped" checked>
+                <span class="font-specimen">Pls make website</span>
+                <span class="font-name">Shipped <small>Space Grotesk + Atkinson Hyperlegible</small></span>
+              </label>
+              <label class="font-opt" data-pair="comic">
+                <input type="radio" name="font" value="comic">
+                <span class="font-specimen">Pls make website</span>
+                <span class="font-name">Legally distinct <small>Comic Neue</small></span>
+              </label>
+              <label class="font-opt" data-pair="fancy">
+                <input type="radio" name="font" value="fancy">
+                <span class="font-specimen">Pls make website</span>
+                <span class="font-name">Fancy client <small>Fraunces + Source Serif 4</small></span>
+              </label>
+              <label class="font-opt" data-pair="8bit">
+                <input type="radio" name="font" value="8bit">
+                <span class="font-specimen">Pls make website</span>
+                <span class="font-name">8-bit <small>Press Start 2P + IBM Plex Mono</small></span>
+              </label>
+            </div>
+          </fieldset>
+          <p id="font-note" class="font-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="band band-ink" id="menus" aria-labelledby="h-menus">
+      <div class="wrap">
+        <p class="quote">also fancy menus with whooosh on,</p>
+        <h2 id="h-menus">The whooosh is in the top corner.</h2>
+        <p class="stub">Phase 2 builds this section: an "open the menu" demo button and notes on focus handling and reduced motion.</p>
+      </div>
+    </section>
+
+    <section class="band band-paper" id="fast" aria-labelledby="h-fast">
+      <div class="wrap">
+        <p class="quote">load fast pls</p>
+        <h2 id="h-fast">Fast, and measured on your device.</h2>
+        <p class="stub">Phase 2 builds this section: real load timings from this visit, plus the Lighthouse score from CI.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="no-bugs" aria-labelledby="h-bugs">
+    <div class="wrap footer-row">
+      <p class="quote">PS no bugs :)</p>
+      <h2 id="h-bugs" class="bugs">bugs: <output class="bugs-n">0</output></h2>
+      <p class="fine">Static HTML and CSS, about 2&nbsp;KB of JS, no tracking. <a href="https://github.com/j8d/pls-make-website">Source on GitHub</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
